@@ -1,5 +1,5 @@
 import openpyxl as ox
-from analisis import mostrar_mayor_temperatura, mostrar_menor_temperatura, mostrar_velocidad_viento
+import analisis
 from api_client import get_weather, get_ciudad, get_pais, get_coordenadas, get_weatherDetail
 
 
@@ -196,7 +196,7 @@ while not salir:
        opcionMenu = int(opcionMenu)
 
        if opcionMenu == 1:
-           pass
+           analisis.mostrar_toda_tabla()
        elif opcionMenu == 2:
            añadirTiempoClimatico()
        elif opcionMenu == 3:
@@ -204,15 +204,15 @@ while not salir:
        elif opcionMenu == 4:
            pass
        elif opcionMenu == 5:
-           pass
+           analisis.filtrar_por_ciudad()
        elif opcionMenu == 6:
-           pass
+           analisis.filtrar_por_pais()
        elif opcionMenu == 7:
-           mostrar_mayor_temperatura()
+           analisis.mostrar_mayor_temperatura()
        elif opcionMenu == 8:
-           mostrar_menor_temperatura()
+           analisis.mostrar_menor_temperatura()
        elif opcionMenu == 9:
-           mostrar_velocidad_viento()
+           analisis.mostrar_velocidad_viento()
        elif opcionMenu == 10:
            print("Fin del programa")
            salir = True

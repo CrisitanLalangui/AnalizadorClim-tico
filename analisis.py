@@ -71,3 +71,38 @@ def mostrar_velocidad_viento():
 
     else:
         print("No hay datos disponibles.")
+
+def filtrar_por_ciudad():
+    df = cargar_datos()
+
+    if df is not None and not df.empty:
+
+        ciudad = input("Introduce la ciudad: ").strip()
+
+        resultado = df[df["City"].str.lower() == ciudad.lower()]
+
+        if not resultado.empty:
+            print(f"\nDatos del clima ciudad: {ciudad}\n")
+            print(resultado.to_string(index=False))
+        else:
+            print("No se encontraron datos para esa ciudad.")
+
+    else:
+        print("No hay datos disponibles.")
+
+def filtrar_por_pais():
+    df = cargar_datos()
+
+    if df is not None and not df.empty:
+
+        pais = input("Introduce el país: ").strip()
+        resultado = df[df["Country"].str.lower() == pais.lower()]
+
+        if not resultado.empty:
+            print(f"\nDatos del clima pais: {pais}\n")
+            print(resultado.to_string(index=False))
+        else:
+            print("No se encontraron datos para ese país.")
+
+    else:
+        print("No hay datos disponibles.")
