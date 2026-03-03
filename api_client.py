@@ -1,4 +1,7 @@
 import requests
+from translate import Translator
+
+traductor = Translator(to_lang="en")
 
 def get_weather(lat, lon):
     url = "https://api.open-meteo.com/v1/forecast"
@@ -86,11 +89,10 @@ def get_coordenadas(ciudad,pais):
 
         # Buscar coincidencia exacta
     for resultado in data["results"]:
-        if resultado["name"].lower() == ciudad.lower() and resultado["country"].lower()==pais.lower():
+        if  resultado["name"].lower()== ciudad.lower() and resultado["country"].lower()==(pais.lower()):
 
            lat = resultado["latitude"]
            lon = resultado["longitude"]
 
     print(pais)
-
     return lat, lon

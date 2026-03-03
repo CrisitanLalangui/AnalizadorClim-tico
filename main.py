@@ -1,14 +1,16 @@
 import openpyxl as ox
+from openpyxl import load_workbook
 
 from api_client import get_weather, get_ciudad, get_pais, get_coordenadas, get_weatherDetail
-
 import pandas as pd
 from translate import Translator
 
-traductor = Translator(to_lang="en")
+
+traductorIngles = Translator(to_lang="en")
+traductorEspañol = Translator(to_lang="es")
+
 
 def dia_o_noche(parametro):
-
     if parametro == 1:
         actual = "dia"
     else:
@@ -72,7 +74,7 @@ def mostrarMenu():
     print("1-- Mostar tiempos climáticos actuales")
     print("2-- Añadir tiempos climáticos  ")
     print("3-- Eliminar tiempos climáticos ")
-    print("4-- Mostrar tiempo Actual")
+    print("4-- Mostrar altitud ")
     print("5-- Filtrar tiempo  climátco por ciudad")
     print("6-- Filtrar tiempo climático por país")
     print("7-- Mostrar mayor temperatura")
@@ -80,11 +82,12 @@ def mostrarMenu():
     print("9-- Mostrar Velocidad del viento")
     print("10- Salir")
 
+
 def mostrarTemperaturaActual():
     pais = input("Introduce un país: ")
     pais = pais.capitalize()
 
-    pais = traductor.translate(pais)
+    pais = traductorIngles.translate(pais)
     pais = pais.strip()
     print(pais)
 
@@ -126,32 +129,40 @@ def mostrarTemperaturaActual():
 
 
 def añadirTiempoClimatico():
-
     filaDatos = []
     pais = input("Introduce un país: ")
-    pais = pais.capitalize()
-
-    pais = traductor.translate(pais)
+    pais = pais.lower()
     pais = pais.strip()
+    pais  = traductorIngles.translate(pais)
+
+    comprobarSiExiste(pais)
+
     print(pais)
 
     while not get_pais(pais):
         print("El país introducido  no existe ")
         pais = input("Por favor introduzca un país correcto: ")
+        pais = pais.lower()
         pais = pais.strip()
+        pais = traductorIngles.translate(pais)
 
-    filaDatos.append(pais)  # Añadimos el país
+    filaDatos.append(traductorEspañol.translate(pais.capitalize()))  # Añadimos el país
 
     ciudad = input("Introduce una ciudad: ")
-    ciudad = ciudad.capitalize()
+    ciudad = ciudad.lower()
     ciudad = ciudad.strip()
+    ciudad = traductorIngles.translate(ciudad)
 
     while not get_ciudad(ciudad):
         print("La ciudad  introducida no existe ")
         ciudad = input("Por favor introduzca una ciudad correcta: ")
+        ciudad = ciudad.lower()
         ciudad = ciudad.strip()
+        ciudad = traductorIngles.translate(ciudad)
 
-    filaDatos.append(ciudad)  # Añadimos ciudad
+
+
+    filaDatos.append((ciudad.capitalize()))  # Añadimos ciudad
 
     latitud, longitud = get_coordenadas(ciudad, pais)
 
@@ -175,51 +186,89 @@ def añadirTiempoClimatico():
     print("-------------------TIEMPO CLIMÁTICO REGISTRADO CORRECTAMENTE--------------")
 
 
+def eliminarTiempoClimático():
+    paisEliminado = input("Introduzca el país registrado: ").strip().lower()
+    ciudadEliminada = input("Introduzca la ciudad eliminada: ").strip().lower()
+
+    archivo = "clima.xlsx"
+    workbook = load_workbook(archivo)
+    clima_sheet = workbook["clima"]
+
+    eliminacionPosible = False
+
+    for i in range(clima_sheet.max_row, 1, -1):
+
+        pais = clima_sheet[f"A{i}"].value
+        ciudad = clima_sheet[f"B{i}"].value
+
+        pais_excel = str(pais).strip().lower()
+        ciudad_excel = str(ciudad).strip().lower()
+
+        if pais_excel == paisEliminado and ciudad_excel == ciudadEliminada:
+            clima_sheet.delete_rows(i)
+            eliminacionPosible = True
+
+    if eliminacionPosible:
+        workbook.save(archivo)
+        print("---------------------REGISTRO ELIMINADO CORRECTAMENTE✅---------------------")
+    else:
+        print("-------------------NO SE HA PODID HACER EL REGISTRO ❌-------------------")
+        print("No se encontró el registro ❌")
+
+    workbook.close()
+
+def comprobarSiExiste(pais,ciudad):
+
+    archivo = "clima.xlsx"
+    workbook = load_workbook(archivo)
+    clima_sheet = workbook["clima"]
+
+    encontrado = False
+
+    for i in range(clima_sheet.max_row, 1, -1):
+
+        pais = clima_sheet[f"A{i}"].value
+        ciudad = clima_sheet[f"B{i}"].value
+
+        pais_excel = str(pais).strip().lower()
+        ciudad_excel = str(ciudad).strip().lower()
+
+        if pais_excel.capitalize() == pais.capitalize() and ciudad.capitalize() == ciudad_excel.capitalize():
+            encontrado = True
+
+        return encontrado
+
 salir = False
 
 while not salir:
 
-   try:
-       mostrarMenu()
-       opcionMenu = input("Introduzca una opción del menú (1-10): ")
+        mostrarMenu()
+        opcionMenu = input("Introduzca una opción del menú (1-10): ")
 
-       opcionMenu = int(opcionMenu)
+        opcionMenu = int(opcionMenu)
 
-       if opcionMenu == 1:
-           pass
-       elif opcionMenu == 2:
-           añadirTiempoClimatico()
-       elif opcionMenu == 3:
-           mostrarTemperaturaActual()
-       elif opcionMenu == 4:
-           pass
-       elif opcionMenu == 5:
-           pass
-       elif opcionMenu == 6:
-           pass
-       elif opcionMenu == 7:
-           pass
-       elif opcionMenu == 8:
-           pass
-       elif opcionMenu == 9:
-           pass
-       elif opcionMenu == 10:
-           print("Fin del programa")
-           salir = True
+        if opcionMenu == 1:
+            pass
+        elif opcionMenu == 2:
+            añadirTiempoClimatico()
+        elif opcionMenu == 3:
+            eliminarTiempoClimático()
+        elif opcionMenu == 4:
+            pass
+        elif opcionMenu == 5:
+            pass
+        elif opcionMenu == 6:
+            pass
+        elif opcionMenu == 7:
+            pass
+        elif opcionMenu == 8:
+            pass
+        elif opcionMenu == 9:
+            pass
+        elif opcionMenu == 10:
+            print("Fin del programa")
+            salir = True
 
-
-       else:
-           opcionMenu = input("La opción escogida es incorecta\nPor favor escoga una de las opciones del menú(1-10): ")
-   except ValueError:
-       print("\nLa opción escogida no puede ser numérica")
-
-
-
-
-
-
-
-
-
-
+        else:
+            opcionMenu = input("La opción escogida es incorecta\nPor favor escoga una de las opciones del menú(1-10): ")
 
