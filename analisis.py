@@ -115,6 +115,7 @@ def get_altitud():
 
    if df is not None and not df.empty:
     print(df[["Country", "City", "Elevation"]].to_string(index=False))
+
    else:
        print("No hay datos disponibles.")
 
