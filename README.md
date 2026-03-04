@@ -72,50 +72,31 @@ La tercera clase  llamada Analisis: sirve para filtrar los datos que el usuario 
 A continuación se muestra un esquema visual de como quedaría la aplicación en cada llamada:
 
 
-
 INICIO
    ↓
-Mostrar menú principal
+Mostrar mensaje de bienvenida
    ↓
-Seleccionar opción
+Solicitar país y ciudad
    ↓
 ¿Datos válidos?
-   ↓                ↓
-   NO               SÍ
-   ↓                ↓
-Mostrar error    Solicitar país y ciudad
-                     ↓
-             ¿Datos válidos?
+   ↓           ↓
+   NO          SÍ
+   ↓           ↓
+Mostrar error  Conectar con API
+               ↓
+        ¿Respuesta correcta?
                ↓         ↓
               NO         SÍ
                ↓          ↓
-        Mostrar error   Llamada a la primera Api
+        Mostrar error   Procesar datos
                           ↓
-                  Obtener latitud y longitud
+                    Mostrar información
                           ↓
-                  Llamada a la segund Api
+                   Guardar en historial
                           ↓
-                 ¿Datos encontrados?
-                   ↓         ↓
-                  NO         SÍ
-                   ↓          ↓
-             Mostrar error   Procesar datos
-                               ↓
-                         Guardar en Excel
-                               ↓
-                        Generar gráfico
-                               ↓
-                              FIN****
-                                                
-
-
-
-
-
-
-
-
-
+                   Generar gráfico
+                          ↓
+                        FIN
 
 
 
