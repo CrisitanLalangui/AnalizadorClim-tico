@@ -70,39 +70,43 @@ La tercera clase  llamada Analisis: sirve para filtrar los datos que el usuario 
 ## Diagrama de flujo
 
 A continuación se muestra un esquema visual de como quedaría la aplicación en cada llamada:
-                                                   INICIO
-                                                                                        ↓
-                                                                                     Mostrar menú principal
-                                                                                        ↓
-                                                                                     Seleccionar opción
-                                                                                        ↓
-                                                                                     ¿Opción 1- 2?
-                                                                                        ↓                ↓
-                                                                                        NO               SÍ
-                                                                                        ↓                ↓
-                                                                                     Mostrar error    Solicitar país y ciudad
-                                                                                                          ↓
-                                                                                                  ¿Datos válidos?
-                                                                                                    ↓         ↓
-                                                                                                   NO         SÍ
-                                                                                                    ↓          ↓
-                                                                                             Mostrar error   Llamada a la primera Api
-                                                                                                               ↓
-                                                                                                       Obtener latitud y longitud
-                                                                                                               ↓
-                                                                                                       Llamada a la segund Api
-                                                                                                               ↓
-                                                                                                      ¿Datos encontrados?
-                                                                                                        ↓         ↓
-                                                                                                       NO         SÍ
-                                                                                                        ↓          ↓
-                                                                                                  Mostrar error   Procesar datos
-                                                                                                                    ↓
-                                                                                                              Guardar en Excel
-                                                                                                                    ↓
-                                                                                                             Generar gráfico
-                                                                                                                    ↓
-                                                                                                                   FIN
+
+
+
+INICIO
+   ↓
+Mostrar menú principal
+   ↓
+Seleccionar opción
+   ↓
+¿Datos válidos?
+   ↓                ↓
+   NO               SÍ
+   ↓                ↓
+Mostrar error    Solicitar país y ciudad
+                     ↓
+             ¿Datos válidos?
+               ↓         ↓
+              NO         SÍ
+               ↓          ↓
+        Mostrar error   Llamada a la primera Api
+                          ↓
+                  Obtener latitud y longitud
+                          ↓
+                  Llamada a la segund Api
+                          ↓
+                 ¿Datos encontrados?
+                   ↓         ↓
+                  NO         SÍ
+                   ↓          ↓
+             Mostrar error   Procesar datos
+                               ↓
+                         Guardar en Excel
+                               ↓
+                        Generar gráfico
+                               ↓
+                              FIN****
+                                                
 
 
 
