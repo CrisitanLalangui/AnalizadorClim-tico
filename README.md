@@ -71,7 +71,9 @@ La tercera clase  llamada Analisis: sirve para filtrar los datos que el usuario 
 
 A continuación se muestra un esquema visual de como quedaría la aplicación en cada llamada:
 
+## 📊 Diagrama de Flujo
 
+```
 INICIO
    ↓
 Mostrar mensaje de bienvenida
@@ -80,7 +82,7 @@ Solicitar país y ciudad
    ↓
 ¿Datos válidos?
    ↓           ↓
-   NO          SÍ
+  NO           SÍ
    ↓           ↓
 Mostrar error  Conectar con API
                ↓
@@ -96,44 +98,8 @@ Mostrar error  Conectar con API
                           ↓
                    Generar gráfico
                           ↓
-                        FIN
-
-
-
-INICIO
-   ↓
-Mostrar menú principal
-   ↓
-Seleccionar opción
-   ↓
-¿Opción 1 (Insertar registro)?
-   ↓                ↓
-   NO               SÍ
-   ↓                ↓
-Ir a otra opción   Solicitar país y ciudad
-                     ↓
-             ¿Datos válidos?
-               ↓         ↓
-              NO         SÍ
-               ↓          ↓
-        Mostrar error   Llamar API geolocalización
-                          ↓
-                  Obtener latitud y longitud
-                          ↓
-                  Llamar API meteorológica
-                          ↓
-                 ¿Datos encontrados?
-                   ↓         ↓
-                  NO         SÍ
-                   ↓          ↓
-             Mostrar error   Procesar datos
-                               ↓
-                         Guardar en Excel
-                               ↓
-                        Generar gráfico
-                               ↓
-                              FIN
-
+                         FIN
+```
 
 
 
