@@ -2,7 +2,7 @@
 ## Diseño del proyecto 
 Analizador Climático – ClimaPy
 
-ClimaPy es una aplicación desarrollada en Python que permite consultar y analizar información meteorológica de cualquier ciudad. Obtiene datos climáticos en tiempo 
+ClimaPy es una aplicación desarrollada en Python que permite consultar y analizar información meteorológica de cualquier ciudad, especificando también su país,. Obtiene datos climáticos en tiempo 
 real de una fuente confiable en Internet"clima" para que los usuarios puedan ver la temperatura, la velocidad del viento y otros aspectos del clima.
 
 
@@ -67,14 +67,9 @@ La segunda clase llamada Apiclient:  es la encargada de hacer las llamadas a las
 La tercera clase  llamada Analisis: sirve para filtrar los datos que el usuario desea obtener,
 
 
-
-
 ## Diagrama de flujo
 
-
-
-
-
+A continuación se muestra un esquema visual de como quedaría la aplicación en cada llamada:
 
 INICIO
    ↓
@@ -101,6 +96,40 @@ Mostrar error  Conectar con API
                    Generar gráfico
                           ↓
                         FIN
+
+                                                                                      INICIO
+                                                                                        ↓
+                                                                                     Mostrar menú principal
+                                                                                        ↓
+                                                                                     Seleccionar opción
+                                                                                        ↓
+                                                                                     ¿Opción 1- 2?
+                                                                                        ↓                ↓
+                                                                                        NO               SÍ
+                                                                                        ↓                ↓
+                                                                                     Mostrar error    Solicitar país y ciudad
+                                                                                                          ↓
+                                                                                                  ¿Datos válidos?
+                                                                                                    ↓         ↓
+                                                                                                   NO         SÍ
+                                                                                                    ↓          ↓
+                                                                                             Mostrar error   Llamada a la primera Api
+                                                                                                               ↓
+                                                                                                       Obtener latitud y longitud
+                                                                                                               ↓
+                                                                                                       Llamada a la segund Api
+                                                                                                               ↓
+                                                                                                      ¿Datos encontrados?
+                                                                                                        ↓         ↓
+                                                                                                       NO         SÍ
+                                                                                                        ↓          ↓
+                                                                                                  Mostrar error   Procesar datos
+                                                                                                                    ↓
+                                                                                                              Guardar en Excel
+                                                                                                                    ↓
+                                                                                                             Generar gráfico
+                                                                                                                    ↓
+                                                                                                                   FIN
 
 
 
