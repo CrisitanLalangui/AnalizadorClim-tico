@@ -35,7 +35,6 @@ def mostrar_toda_tabla():
 
 def mostrar_mayor_temperatura():
     df = cargar_datos()
-
     if df is not None and not df.empty:
 
         max_temp = df["Temperature"].max()
@@ -49,7 +48,6 @@ def mostrar_mayor_temperatura():
 
 def mostrar_menor_temperatura():
     df = cargar_datos()
-
     if df is not None and not df.empty:
 
         min_temp = df["Temperature"].min()
@@ -63,11 +61,13 @@ def mostrar_menor_temperatura():
 
 def mostrar_velocidad_viento():
     df = cargar_datos()
-
     if df is not None and not df.empty:
 
-        print("\nVelocidad del viento registrada en cada ciudad:\n")
-        print(df[["Country", "City", "Windspeed"]].to_string(index=False))
+        max_wind = df["Windspeed"].max()
+        fila = df[df["Windspeed"] == max_wind]
+
+        print("\nMayor velocidad del viento registrada:")
+        print(fila[["Country", "City", "Windspeed"]])
 
     else:
         print("No hay datos disponibles.")
