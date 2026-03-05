@@ -17,6 +17,9 @@ ClimaPy es una aplicación desarrollada en Python que permite consultar y analiz
 ## 🎯 Objetivos
 
 El usuario tendrá que introducir los datos mediante la consola, introduciendo el país y la ciudad.
+![introducirDatos](imagenesGithub/solicitudDatos.png)
+
+
 
 Una vez solicitados estos datos:
 
@@ -28,13 +31,32 @@ Con estas coordenadas se obtendrá información del clima en tiempo real.
 
 Los datos obtenidos se almacenarán en un archivo Excel, que actuará como base de datos con columnas para la información climática.
 
+En nuestro caso hemos elegido **Excel**
+![introducirDatos](imagenesGithub/baseDeDatosExcel.png)
+
 El menú principal contará con 10 opciones:
+
+![introducirDatos](imagenesGithub/menu.png)
 
 Las opciones 1 y 2 servirán para introducir y eliminar registros climáticos en Excel.
 
 El resto de opciones (excepto la 10) usarán Pandas para filtrar datos.
 
 Los datos filtrados se usarán para construir gráficos con Plotly para comparar cambios climáticos.
+
+**Gráfico de barras**
+![introducirDatos](imagenesGithub/graficoBarrasIndiviidualesTiempo.png)
+
+
+**Gráfico de barrasAgrupado**
+![introducirDatos](imagenesGithub/graficoBarras.png)
+
+
+**Gráfico radial**
+![introducirDatos](imagenesGithub/graficoRadial.png)
+
+
+
 
 ## 🏗️ Estructura y funcionalidad principal
 
@@ -79,6 +101,11 @@ Además podrá consultar:
 **🌪️ Máxima velocidad del viento**
 
 ## 🧩 Clases del proyecto
+
+
+![introducirDatos](imagenesGithub/Estructuraproyecto.png)
+
+
 
 Se contará con tres clases principales:
 
