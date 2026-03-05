@@ -43,8 +43,11 @@ Las funciones principales de la aplicación permiten al usuario obtener informac
 El usuario podrá consultar:
 
 **🌡️ Temperatura en grados Celsius (°C)**
+
 **🏔️ Altitud**
+
 **💨 Velocidad del viento**
+
 **🧭 Dirección del viento:**
 
 Norte
@@ -70,7 +73,9 @@ Lloviendo
 Soleado
 
 Además podrá consultar:
+
 **🔺 Temperatura máxima**
+
 **🌪️ Máxima velocidad del viento**
 
 ## 🧩 Clases del proyecto
