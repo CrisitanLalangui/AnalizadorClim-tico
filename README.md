@@ -1,76 +1,103 @@
+## 🌦️ Diseño del proyecto
 
-## Diseño del proyecto 
-Analizador Climático – ClimaPy
+📊 Analizador Climático – ClimaPy
 
-ClimaPy es una aplicación desarrollada en Python que permite consultar y analizar información meteorológica de cualquier ciudad, especificando también su país,. Obtiene datos climáticos en tiempo 
-real de una fuente confiable en Internet"clima" para que los usuarios puedan ver la temperatura, la velocidad del viento y otros aspectos del clima.
+ClimaPy es una aplicación desarrollada en Python que permite consultar y analizar información meteorológica de cualquier ciudad, especificando también su país. Obtiene datos climáticos en tiempo real de una fuente confiable en Internet para que los usuarios puedan ver la temperatura, velocidad del viento y otros aspectos del clima.
 
+ **Diferencias del proyecto:**
 
-En que se diferencia:
-Crea un historial de datos de diferentes ciudades.
-Genera graficos para su facil comprension.
+📁 Crea un historial de datos de diferentes ciudades.
 
-Hacer el diseño del proyecto
-Breve documentación no técnica
-Diagrama de flujo
-Objetivos que se quieren conseguir
-Estructura del proyecto, con la funcionalidad principal comenzada
+📊 Genera gráficos para su fácil comprensión.
 
-## Objetivos que se quieren conseguir
-
-El usuario tendrá que introducir los datos mediante la consola, introduciendo el país y la ciudad,
-
-una vez soliticato estos datos, se obtendrá la latitud y  la longitud mediatne una llamada  a una primera api,
-
-después de esto llamaremos a una segunda api, pasándole la latitud y la longitud que hemos obtenido, que son las coordenadas de un país, mediante
-estas coordenadas podremos obtener información del timpo climático  de un país y una ciudad en tiempo real,
+📝 Permite documentación y análisis de datos climáticos.
 
 
 
-Después, todo lo que nos devuelva esa api, con los datos que nos han llegado, <<Explicación en la Estrutura del proyecto y la funcionalidad principal>>, se almacenarán
-en un excel, que actuará como una base de datos con las siguientes columnas: ,
+## 🎯 Objetivos
 
+El usuario tendrá que introducir los datos mediante la consola, introduciendo el país y la ciudad.
 
+Una vez solicitados estos datos:
 
+Se obtendrá la latitud y la longitud mediante una primera API.
 
-Contaremos con un menú principal con 10 opciones,  en caso de la primera y segunda opción que son opciones  para introducir  
-y eliminar registros climáticos respectivamente, en una base de datos, en nuestro caso será Excel, 
+Después se llamará a una segunda API, pasándole la latitud y longitud obtenidas.
 
+Con estas coordenadas se obtendrá información del clima en tiempo real.
 
-El resto de las opciones excepto la número 10, funcionan con Pandas, que son para filtrar los datos  que el usuario desea obtener,
+Los datos obtenidos se almacenarán en un archivo Excel, que actuará como base de datos con columnas para la información climática.
 
+El menú principal contará con 10 opciones:
 
+Las opciones 1 y 2 servirán para introducir y eliminar registros climáticos en Excel.
 
-Una vez obtenidos estos datos, se guardarán y se utilizarán en su uso, para la construcción de gráficos para comparar y analizar
-los distintos cambios climáticos en distintas ciudades y países del mundo
+El resto de opciones (excepto la 10) usarán Pandas para filtrar datos.
 
+Los datos filtrados se usarán para construir gráficos con Plotly para comparar cambios climáticos.
 
+##🏗️ Estructura y funcionalidad principal
 
-Para ello usaremos la librería Plotty
+Las funciones principales de la aplicación permiten al usuario obtener información del clima en tiempo real de un país y ciudad mediante una interfaz gráfica o consola.
 
- 
-## Estrucutra del proyecto y funcionalidad principal
+El usuario podrá consultar:
 
-Las funciones principales de la aplicación es proporcionar al usuario información sobre el clima en tiempo real de un país y de una ciudad que se van a especificar  a traves de una interfaz gráfica,en las que este 
-puede consultar el tiempo en grados Celsius Cº, la altitud, la velocidad del viento,  la dirección del viento( norte, sur, este, oeste, suroeste, noroeste), el estado en el que se encuentra(Si está  nublado, despejado, está lloviendo, o si está soleado), poder consultar la temperatura máxima, y la máxima velocidad del viento 
+**🌡️ Temperatura en grados Celsius (°C)**
+**🏔️ Altitud**
+**💨 Velocidad del viento**
+**🧭 Dirección del viento:**
 
+Norte
 
-Se contará con tres Clases:
+Sur
 
+Este
 
-La primerra clase llamada Main:  es la encargada del funcionamiento principal de la aplicación, ya que si se introduce un dato  que se desea consultar en la aplicación,
+Oeste
 
+Suroeste
 
-La segunda clase llamada Apiclient:  es la encargada de hacer las llamadas a las correspondientes Apis
+Noroeste
 
+**☁️ Estado del clima:**
 
-La tercera clase  llamada Analisis: sirve para filtrar los datos que el usuario desea obtener,
+Nublado
 
+Despejado
 
-## Diagrama de flujo
+Lloviendo
 
-A continuación se muestra un esquema visual de como quedaría la aplicación en cada llamada:
-## 📊 Diagrama de Flujo
+Soleado
+
+Además podrá consultar:
+**🔺 Temperatura máxima**
+**🌪️ Máxima velocidad del viento**
+
+## 🧩 Clases del proyecto
+
+Se contará con tres clases principales:
+
+**1️⃣ Clase Main**
+
+La clase Main es la encargada del funcionamiento principal de la aplicación. Controla la interacción del usuario e inicia las consultas cuando se introducen los datos en la aplicación.
+
+**2️⃣ Clase ApiClient**
+
+La clase ApiClient es la encargada de realizar las llamadas a las correspondientes APIs para obtener:
+
+Latitud
+
+Longitud
+
+Datos climáticos en tiempo real
+
+**3️⃣ Clase Analisis**
+
+La clase Analisis sirve para filtrar los datos que el usuario desea obtener, permitiendo procesar la información almacenada en Excel y preparar los datos para su análisis y visualización.
+
+**4️⃣ Clase interfaz**
+
+Esta clase Interfaz sirve para procesar los datos que se han almacenado en excel, y generar gráficos con ellos
 
 ```
 INICIO
