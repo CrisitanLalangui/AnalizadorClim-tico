@@ -107,7 +107,7 @@ Además podrá consultar:
 
 
 
-Se contará con tres clases principales:
+Se contará con cuatro clases principales:
 
 **1️⃣ Clase Main**
 
