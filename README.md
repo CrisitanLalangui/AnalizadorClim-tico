@@ -17,6 +17,7 @@ ClimaPy es una aplicación desarrollada en Python que permite consultar y analiz
 ## 🎯 Objetivos
 
 El usuario tendrá que introducir los datos mediante la consola, introduciendo el país y la ciudad.
+
 ![introducirDatos](imagenesGithub/solicitudDatos.png)
 
 
